@@ -8,7 +8,6 @@ This project demonstrates a real-time **taxi ride streaming pipeline**.
 ---
 
 ## Architecture Diagram
-![alt text](streaming_architecture.png)
 
 ---
 
@@ -47,15 +46,22 @@ This project demonstrates a real-time **taxi ride streaming pipeline**.
 ## Setup Instructions
 1. **Start Kafka locally (via Docker Compose):**  
    - Install [Docker Desktop](https://www.docker.com/products/docker-desktop/).  
+   - Use the provided [`docker-compose.yml`](./docker-compose.yml) in this repo.
    - Run `docker-compose up -d` to start **Kafka + Zookeeper**.  
 2. **Create a Kafka topic:**  
-   ``` bash kafka-topics --create --topic taxi_rides --bootstrap-server localhost:9092
+   ``` 
+   bash kafka-topics --create --topic taxi_rides --bootstrap-server localhost:9092
+   ```
 3. **Run the event Producer***
-    ``` bash python producer/cab_data_producer.py
+    ``` 
+    bash python producer/cab_data_producer.py
+    ```
 4.	**Run the streaming job (with Kafka connector):**
-    ```bash spark-submit \
+    ```
+    bash spark-submit \
   --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.1 \
   jobs/streaming_app.py
+    ```
 5.  **BigQuery integration:**
     - Create a service account with BigQuery read/write access.
     - Download the key JSON and set GOOGLE_APPLICATION_CREDENTIALS.
@@ -64,13 +70,14 @@ This project demonstrates a real-time **taxi ride streaming pipeline**.
 ---
 
 # Repository Structure
+```
 .
 ├── producer/        # Python event generator
 ├── jobs/            # Spark structured streaming jobs
 ├── docker-compose.yml
 ├── README.md
 └── requirements.txt
-
+```
 ---
 
 # Disclaimer
