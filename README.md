@@ -8,6 +8,7 @@ This project demonstrates a real-time **taxi ride streaming pipeline**.
 ---
 
 ## Architecture Diagram
+<img width="951" height="144" alt="streaming_architecture" src="https://github.com/user-attachments/assets/962c1fc9-43e9-4885-a0f6-5da8b9a147ac" />
 
 ---
 
@@ -58,9 +59,7 @@ This project demonstrates a real-time **taxi ride streaming pipeline**.
     ```
 4.	**Run the streaming job (with Kafka connector):**
     ```
-    bash spark-submit \
-  --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.1 \
-  jobs/streaming_app.py
+    bash spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.1 jobs/streaming_app.py
     ```
 5.  **BigQuery integration:**
     - Create a service account with BigQuery read/write access.
