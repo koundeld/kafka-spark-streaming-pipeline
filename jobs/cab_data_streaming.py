@@ -54,8 +54,8 @@ final_stream = with_window.select(
 # Write into BigQuery (append-only)
 final_stream.writeStream \
     .format("bigquery") \
-    .option("table", "gcp-big-self-009.nyc_cab.taxi_rides_raw") \
-    .option("temporaryGcsBucket", "spark-bq-staging-1234") \
+    .option("table", "<proj_id>.<dataset_name>.taxi_rides_raw") \
+    .option("temporaryGcsBucket", "<gcs_bucket>") \
     .option("checkpointLocation", "checkpoints/taxi_rides_raw") \
     .outputMode("append") \
     .start() \
